@@ -1,1 +1,23 @@
-123
+<?php
+
+class LittleBell
+{
+    public function sound()
+    {
+        echo " ding ";
+    }
+}
+
+// Test 1
+$bell = new LittleBell();
+$bell->sound();
+
+echo "\n"; 
+
+// Test 2
+$bell2 = new LittleBell();
+$bell2->sound();
+$bell2->sound();
+$bell2->sound();
+
+?>
