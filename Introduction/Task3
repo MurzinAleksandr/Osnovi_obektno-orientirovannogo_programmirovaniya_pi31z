@@ -1,0 +1,46 @@
+<?php
+
+class Balance
+{
+    private int $left_weight = 0;
+    private int $right_weight = 0;
+
+    public function add_right(int $weight): void
+    {
+        $this->right_weight += $weight;
+    }
+
+    public function add_left(int $weight): void
+    {
+        $this->left_weight += $weight;
+    }
+
+    public function result(): string
+    {
+        if ($this->left_weight > $this->right_weight) {
+            return 'L';
+        } elseif ($this->right_weight > $this->left_weight) {
+            return 'R';
+        } else {
+            return '=';
+        }
+    }
+}
+
+// Test 1
+$balance1 = new Balance();
+$balance1->add_right(10);
+$balance1->add_left(9);
+$balance1->add_left(2);
+echo $balance1->result() . "\n";
+
+// Test 2
+$balance2 = new Balance();
+$balance2->add_right(10);
+$balance2->add_left(5);
+$balance2->add_left(5);
+echo $balance2->result() . "\n";
+$balance2->add_left(1);
+echo $balance2->result() . "\n";
+
+?>
