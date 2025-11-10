@@ -1,0 +1,45 @@
+<?php
+
+class Button
+{
+    private $count = 0;
+
+    public function click()
+    {
+        $this->count++;
+    }
+
+    public function click_count()
+    {
+        return $this->count;
+    }
+
+    public function reset()
+    {
+        $this->count = 0;
+    }
+}
+
+// Test1
+$button1 = new Button();
+$button1->click();
+$button1->click();
+echo $button1->click_count() . "\n";
+$button1->click();
+echo $button1->click_count() . "\n";
+
+// Test 2
+$button2 = new Button();
+$button2->click();
+$button2->click();
+echo $button2->click_count() . "\n";
+$button2->reset();
+$button2->click();
+echo $button2->click_count() . "\n";
+
+// Test 3
+$button3 = new Button();
+$button3->click();
+echo $button3->click_count() . "\n";
+
+?>
