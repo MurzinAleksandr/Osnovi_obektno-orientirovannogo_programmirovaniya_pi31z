@@ -1,0 +1,47 @@
+<?php
+
+class Selector
+{
+    private array $numbers;
+
+    public function __construct(array $values)
+    {
+        $this->numbers = $values;
+    }
+
+    public function get_odds(): array
+    {
+        return array_filter($this->numbers, function ($n) {
+            return $n % 2 !== 0;
+        });
+    }
+
+    public function get_evens(): array
+    {
+        return array_filter($this->numbers, function ($n) {
+            return $n % 2 === 0;
+        });
+    }
+}
+
+function print_results($selector) {
+    echo implode(' ', $selector->get_odds()) . "\n";
+    echo implode(' ', $selector->get_evens()) . "\n";
+}
+
+// Test 1
+$values1 = [11, 12, 13, 14, 15, 16, 22, 44, 66];
+$selector1 = new Selector($values1);
+print_results($selector1);
+
+// Test 2
+$values2 = [6, 6, 0, 4, 8, 7, 6, 4, 7, 5];
+$selector2 = new Selector($values2);
+print_results($selector2);
+
+// Test 3
+$values3 = [];
+$selector3 = new Selector($values3);
+print_results($selector3);
+
+?>
