@@ -1,0 +1,46 @@
+<?php
+
+class BaseObject
+{
+    protected $x;
+    protected $y;
+    protected $z;
+
+    public function __construct($x, $y, $z)
+    {
+        $this->x = $x;
+        $this->y = $y;
+        $this->z = $z;
+    }
+
+    public function get_coordinates(): array
+    {
+        return [$this->x, $this->y, $this->z];
+    }
+}
+
+class Block extends BaseObject
+{
+    public function shatter(): void
+    {
+        $this->x = null;
+        $this->y = null;
+        $this->z = null;
+    }
+}
+
+class Entity extends BaseObject
+{
+    public function move($new_x, $new_y, $new_z): void
+    {
+        $this->x = $new_x;
+        $this->y = $new_y;
+        $this->z = $new_z;
+    }
+}
+
+class Thing extends BaseObject
+{
+}
+
+?>
